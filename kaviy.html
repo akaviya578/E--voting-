@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple E-Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #results {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🗳️ Simple E-Voting System</h1>
+    <p>Click a button to vote for your favorite candidate:</p>
+
+    <button onclick="vote('Aruna')">Vote for Aruna</button>
+    <button onclick="vote('Abi')">Vote for Abi</button>
+    <button onclick="vote('Divya')">Vote for Divya</button>
+
+    <div id="results">
+        <p>Aruna: <span id="ArunaVotes">0</span> votes</p>
+        <p>Abi: <span id="AbiVotes">0</span> votes</p>
+        <p>Divya: <span id="DivyaVotes">0</span> votes</p>
+    </div>
+
+    <script>
+        // Vote counts
+        let votes = {
+            Aruna: 0,
+            Abi: 0,
+            Divya: 0
+        };
+
+        // Vote function
+        function vote(candidate) {
+            votes[candidate]++;
+            updateResults();
+            alert("✅ Your vote for " + candidate + " has been recorded!");
+        }
+
+        // Update vote counts on screen
+        function updateResults() {
+            document.getElementById("ArunaVotes").textContent = votes.Aruna;
+            document.getElementById("AbiVotes").textContent = votes.Abi;
+            document.getElementById("DivyaVotes").textContent = votes.Divya;
+        }
+    </script>
+
+</body>
+</html>
